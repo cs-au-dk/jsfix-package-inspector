@@ -1,0 +1,22 @@
+{
+  "name": "package-inspector",
+  "type": "module",
+  "version": "1.0.1",
+  "main": "index.js",
+  "bin": {
+    "package-inspector": "index.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^5.0.1",
+    "commander": "^9.4.0",
+    "node": "^18.5.0",
+    "path": "^0.12.7"
+  },
+  "description": ""
+}

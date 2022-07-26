@@ -1,0 +1,7 @@
+#!/bin/bash
+
+pName=$1
+pVersion=$2
+
+mkdir "$pName@$pVersion" 
+cd ./$pName@$pVersion && mkdir "auxProject" && cd ./auxProject && npm init -f && npm install $pName@$pVersion
