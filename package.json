@@ -18,5 +18,5 @@
     "node": "^18.5.0",
     "path": "^0.12.7"
   },
-  "description": ""
+  "description": "Inspecting npm packages made easy"
 }
