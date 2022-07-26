@@ -15,6 +15,7 @@
   "dependencies": {
     "chalk": "^5.0.1",
     "commander": "^9.4.0",
+    "fs": "^0.0.1-security",
     "node": "^18.5.0",
     "path": "^0.12.7"
   },

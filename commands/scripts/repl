@@ -11,4 +11,3 @@ else
     mkdir "$pName"
     cd ./$pName && mkdir "auxProject" && cd ./auxProject && npm init -f && npm install $pName
 fi
-
