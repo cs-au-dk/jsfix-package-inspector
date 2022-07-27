@@ -16,14 +16,20 @@ export default (packageName, packageVersion) => {
             exec(`${scriptPath} ${packageName} ${packageVersion}`, function(err, stdout){
                 if (err) {
                     console.log(err)
+                    // If the folder was created before the error, remove the folder again
+                    if(fs.existsSync(join(__dirname, `../${packageName}@${packageVersion}`))) {
+                        exec(`${join(__dirname, 'scripts', 'removeFolder')} ${packageName} ${packageVersion}`);
+                    };
                 }
-                console.log(chalk.green(chalk.bold(`\n${packageName}@${packageVersion} was successfully installed in the new folder 
-                ${process.cwd()}/${packageName}@${packageVersion}/auxProject`))); 
-                
-                // TODO: make this automatic, so the user does not have to copy/paste
-                console.log("\nTo start the REPL copy/paste the following two lines into your console:");
-                console.log(chalk.bold(`cd ${packageName}@${packageVersion}/auxProject && node`));
-                console.log(chalk.bold(`const lib = require('${packageName}')`));
+                else {
+                    console.log(chalk.green(chalk.bold(`\n${packageName}@${packageVersion} was successfully installed in the new folder 
+                    ${process.cwd()}/${packageName}@${packageVersion}/auxProject`))); 
+                    
+                    // TODO: make this automatic, so the user does not have to copy/paste
+                    console.log("\nTo start the REPL copy/paste the following two lines into your console:");
+                    console.log(chalk.bold(`cd ${packageName}@${packageVersion}/auxProject && node`));
+                    console.log(chalk.bold(`const lib = require('${packageName}')`));
+                } 
             });
         }
     }
@@ -35,6 +41,10 @@ export default (packageName, packageVersion) => {
             exec(`${scriptPath} ${packageName}`, function(err, stdout){
                 if (err) {
                     console.log(err)
+                    // If the folder was created before the error, remove the folder again
+                    if(fs.existsSync(join(__dirname, `../${packageName}`))) {
+                        exec(`${join(__dirname, 'scripts', 'removeFolder')} ${packageName}`);
+                    };
                 }
                 console.log(stdout)
                 console.log(chalk.green(chalk.bold(`\n${packageName} was successfully installed in the new folder 

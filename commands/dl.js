@@ -4,15 +4,16 @@ import { join } from 'path'
 import * as url from 'url';
 import fs from 'fs';
 
+// The absolute path of this file (used when the package is installed globally)
 const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
 
 
 export default (packageName, packageVersions) => {
-    // TODO: add fail-safe if a folder with a name packageName@packageVersions... already exists
     const packagesAdded = [];
     let packagesLeft = packageVersions.length
-    const scriptPath = join(__dirname, 'scripts', 'dl')
+    let scriptPath = join(__dirname, 'scripts', 'dl')
     for (let v of packageVersions) {
+        // Make sure the folder does not already exist
         if (fs.existsSync(`${packageName}@${v}`)) {
             console.log(chalk.red(`The folder ${packageName}@${v} already exists`))
             packagesLeft--;
@@ -21,6 +22,10 @@ export default (packageName, packageVersions) => {
             exec(`${scriptPath} ${packageName} ${v}`, function(err, stdout){
                 if (err) {
                     console.log(err)
+                    // If the folder was created before the error, remove the folder again
+                    if(fs.existsSync(join(__dirname, `../${packageName}@${v}`))) {
+                        exec(`${join(__dirname, 'scripts', 'removeFolder')} ${packageName} ${v}`);
+                    };
                 } else {
                     packagesAdded.push(`${packageName}@${v}`)
                 }
