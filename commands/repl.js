@@ -20,7 +20,7 @@ export default (packageName, packageVersion) => {
                 };
             }
             else {
-                console.log(chalk.green(chalk.bold(`\n${packageName}@${packageVersion} was successfully installed in the new folder 
+                console.log(chalk.green(chalk.bold(`\n${folderName} was successfully installed in the new folder 
                 ${process.cwd()}/${folderName}/auxProject`))); 
                 
                 // TODO: make this automatic, so the user does not have to copy/paste
