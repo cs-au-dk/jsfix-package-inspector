@@ -1,0 +1,6 @@
+#!/bin/bash
+
+folderName=$1
+
+mkdir "$folderName" 
+cd ./$folderName && mkdir "auxProject" && cd ./auxProject && npm init -f && npm install $folderName

@@ -1,11 +1,4 @@
 #!/bin/bash
 
-pName=$1
-pVersion=$2
-
-if [[ "$pVersion" != "" ]]
-then
-    rm -fr ${pName}@${pVersion}
-else
-    rm -fr ${pName}
-fi
+folderName=$1
+rm -fr ${folderName}
