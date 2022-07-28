@@ -19,5 +19,6 @@
     "node": "^18.5.0",
     "path": "^0.12.7"
   },
-  "description": "Inspecting npm packages made easy"
+  "description": "Inspecting npm packages made easy",
+  "homepage": "https://github.com/mR4smussen/package-inspector#readme"
 }
