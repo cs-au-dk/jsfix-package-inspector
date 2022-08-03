@@ -7,7 +7,7 @@ import dl from './commands/dl.js';
 program.description("Inspecting npm packages made easy")
        .name("package-inspector")
        .usage("<command>")
-       .addHelpCommand(false);;
+       .addHelpCommand(false);
        // TODO: better help desc.
 
 program.command("repl")
@@ -19,6 +19,7 @@ program.command("repl")
 program.command("dl")
        .argument("<package>", "name of the package you want to create folders for.")
        .argument("<versions...>", "Versions of the packages.")
+       .option("-c, --class", "Write all the package class interfaces to a seperate file")
        .description("Create folders for packages (e.g., package-inspector dl lodash 3 4).")
        .action(dl);
 
