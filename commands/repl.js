@@ -1,4 +1,5 @@
 import { exec } from 'child_process';
+import repl from 'repl'
 import chalk from 'chalk';
 import { join } from 'path'
 import * as url from 'url';
@@ -15,18 +16,17 @@ export default (packageName, packageVersion) => {
             if (err) {
                 console.log(err)
                 // If the folder was created before the error, remove the folder again
-                if(fs.existsSync(join(__dirname, `../${folderName}`))) {
+                if(fs.existsSync(`${folderName}`)) {
                     exec(`${join(__dirname, 'scripts', 'removeFolder')} ${folderName}`);
-                };
+                }
+                console.log(chalk.red(`The error was most likely caused by ${folderName} not being a valid package on npm.`))
             }
             else {
                 console.log(chalk.green(chalk.bold(`\n${folderName} was successfully installed in the new folder 
                 ${process.cwd()}/${folderName}/auxProject`))); 
                 
-                // TODO: make this automatic, so the user does not have to copy/paste
-                console.log("\nTo start the REPL copy/paste the following two lines into your console:");
-                console.log(chalk.bold(`cd ${folderName}/auxProject && node`));
-                console.log(chalk.bold(`const lib = require('${packageName}')`));
+                process.chdir(`./${folderName}/auxProject`);
+                repl.start().write(`const lib = require('${process.cwd()}/node_modules/${packageName}')\r\n`)
             } 
         });
     }
