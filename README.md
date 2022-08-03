@@ -57,9 +57,10 @@ Usage: package-inspector dl [options] <package> <versions...>
 Create folders for packages (e.g., package-inspector dl lodash 3 4).
 
 Arguments:
-  package     name of the package you want to create folders for.
-  versions    Versions of the packages.
+  package      name of the package you want to create folders for.
+  versions     Versions of the packages.
 
 Options:
-  -h, --help  display help for command
+  -c, --class  Write all the package class interfaces to a seperate file
+  -h, --help   display help for command
 ```
