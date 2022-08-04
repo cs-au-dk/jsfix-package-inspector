@@ -1,6 +1,6 @@
 #!/bin/bash
 
-folderName=$1
+pNameAndVersion=$1
+versionFolder=$2
 
-mkdir "$folderName" 
-cd ./$folderName && mkdir "auxProject" && cd ./auxProject && npm init -f && npm install $folderName
+mkdir "$versionFolder" && cd "./$versionFolder" && npm init -f && npm install $pNameAndVersion
