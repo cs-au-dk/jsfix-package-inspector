@@ -64,3 +64,23 @@ Options:
   -c, --class  Write all the package class interfaces to a seperate file
   -h, --help   display help for command
 ```
+
+### The `exec [options] <exp> <package> <versions...>` command
+
+The `exec` command can be used for executing one or more expressions on multiple versions of a package at the same time. It takes three arguments, the first being either a string expression to execute or a file consisting of multiple expressions. When providing a string, the package can be access through a `lib` constant (e.g. `package-inspector exec "lib.foo();" lodash 3 4`). The second argument is a package name and the third argument is one or more version numbers.
+
+```console
+$ package-inspector exec -h
+Usage: package-inspector exec [options] <exp> <package> <versions...>
+
+Run either a single expression or a file with expressions on each versions of the package (e.g., package-inspector exec exps.txt -f lodash 3 4).
+
+Arguments:
+  exp         expression/file.
+  package     name of the package you want to use.
+  versions    Versions of the packages.
+
+Options:
+  -f, --file  Execute a file containing multiple expressions (e.g., package-inspector exec exps.txt -f lodash 3 4).
+  -h, --help  display help for command
+```
