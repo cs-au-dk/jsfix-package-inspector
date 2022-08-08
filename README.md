@@ -12,7 +12,7 @@ npm install -g package-inspector
 
 ## Usage
 
-Package-inspector is made to be used on the command line, currently providing the commands `repl` and `dl`. Also you can always use the argument `-h/--help` to get help.
+Package-inspector is made to be used on the command line, currently providing the commands `repl`, `dl` and `exec`. Also you can always use the argument `-h/--help` to get help.
 
 ```console
 $ package-inspector -h
@@ -67,7 +67,7 @@ Options:
 
 ### The `exec [options] <exp> <package> <versions...>` command
 
-The `exec` command can be used for executing one or more expressions on multiple versions of a package at the same time. It takes three arguments, the first being either a string expression to execute or a file consisting of multiple expressions. When providing a string, the package can be access through a `lib` constant (e.g. `package-inspector exec "lib.foo();" lodash 3 4`). The second argument is a package name and the third argument is one or more version numbers.
+The `exec` command can be used for executing one or more expressions on multiple versions of a package at the same time. It takes three arguments, the first being either a string expression to execute or a file consisting of multiple expressions. When providing a string, the package can be accessed through a `lib` constant (e.g. `package-inspector exec "lib.foo();" lodash 3 4`). The second argument is a package name and the third argument is one or more version numbers.
 
 ```console
 $ package-inspector exec -h
