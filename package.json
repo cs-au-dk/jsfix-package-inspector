@@ -17,7 +17,8 @@
     "commander": "^9.4.0",
     "fs": "^0.0.1-security",
     "node": "^18.5.0",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "tmp": "^0.2.1"
   },
   "description": "Inspecting npm packages made easy",
   "homepage": "https://github.com/mR4smussen/package-inspector#readme"
