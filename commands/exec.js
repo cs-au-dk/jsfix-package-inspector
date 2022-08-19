@@ -10,7 +10,7 @@ const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
 export default (exp, packageName, packageVersion, options) => {
     
     const expToRUn = options.file ? 
-        fs.readFileSync('test.txt', 'utf-8') :
+        fs.readFileSync(exp, 'utf-8') :
         `const lib = require('${packageName}')\r\n ${exp}\r\n`;
 
     tmp.setGracefulCleanup();
