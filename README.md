@@ -84,3 +84,20 @@ Options:
   -f, --file  Execute a file containing multiple expressions (e.g., package-inspector exec exps.txt -f lodash 3 4).
   -h, --help  display help for command
 ```
+
+### The `cl <package> command
+
+The `cl` command can be used for getting the urls of the release pages and the changelog of all the major versions of a package. The command is intended for repositories using the [semantic release](https://github.com/semantic-release/semantic-release) package, and there is a chance some unique version names won't work with this command.
+
+```console
+$ package-inspector cl -h
+Usage: package-inspector cl [options] <package>
+
+Get changelog urls for the major versions of a package (e.g., package-inspector cl lodash).
+
+Arguments:
+  package     name of the package you want the changelogs for.
+
+Options:
+  -h, --help  display help for command
+```
