@@ -12,7 +12,7 @@ npm install -g package-inspector
 
 ## Usage
 
-Package-inspector is made to be used on the command line, currently providing the commands `repl`, `dl` and `exec`. Also you can always use the argument `-h/--help` to get help.
+Package-inspector is made to be used on the command line, currently providing the commands `repl`, `dl`, `exec` and `cl`. Also you can always use the argument `-h/--help` to get help.
 
 ```console
 $ package-inspector -h
@@ -21,11 +21,14 @@ Usage: package-inspector <command>
 Inspecting npm packages made easy
 
 Options:
-  -h, --help                  display help for command
+  -h, --help                                    display help for command
 
 Commands:
-  repl <package> [version]    Start a REPL with a specific package and version (e.g., package-inspector repl lodash 4).
-  dl <package> <versions...>  Create folders for packages (e.g., package-inspector dl lodash 3 4).
+  repl <package> [version]                      Start a REPL with a specific package and version (e.g., package-inspector repl lodash 4).
+  dl [options] <package> <versions...>          Create folders for packages (e.g., package-inspector dl lodash 3 4).
+  exec [options] <exp> <package> <versions...>  Run either a single expression or a file with expressions on each versions of the package (e.g.,
+                                                package-inspector exec exps.txt -f lodash 3 4).
+  cl <package>                                  Get changelog urls for the major versions of a package (e.g., package-inspector cl lodash).
 ```
 
 ### The `repl <package> [version]` command
