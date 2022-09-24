@@ -30,6 +30,7 @@ program.command("exec")
        .argument("<package>", "name of the package you want to use.")
        .argument("<versions...>", "Versions of the packages.")
        .option("-f, --file", "Execute a file containing multiple expressions (e.g., package-inspector exec exps.txt -f lodash 3 4).")
+       .option("-ap, --additionalPackages <additionalPackages...>", "Include these additional packages in the project where you execute the expression(s).")
        .description("Run either a single expression or a file with expressions on each versions of the package (e.g., package-inspector exec exps.txt -f lodash 3 4).")
        .action(exec);
 
